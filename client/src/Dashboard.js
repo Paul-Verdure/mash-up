@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect,useContext } from "react"
 import useAuth from "./useAuth"
 import Player from "./Player"
 import TrackSearchResult from "./TrackSearchResult"
 import { Container, Form } from "react-bootstrap"
 import SpotifyWebApi from "spotify-web-api-node"
-import axios from "axios"
+import {TrackContext} from "./context/TrackContext";
+// import axios from "axios"
 
 const spotifyApi = new SpotifyWebApi({
   clientId: "e48a09962c39496da4a072ca196590e4",
@@ -14,8 +15,11 @@ export default function Dashboard({ code }) {
   const accessToken = useAuth(code)
   const [search, setSearch] = useState("")
   const [searchResults, setSearchResults] = useState([])
-  const [playingTrack, setPlayingTrack] = useState()
-  const [lyrics, setLyrics] = useState("")
+  const {playingTrack, setPlayingTrack,lyrics,setLyrics} = useContext(TrackContext)
+  // const [playingTrack, setPlayingTrack] = useState()
+  // const [lyrics, setLyrics] = useState("")
+
+  
 
   function chooseTrack(track) {
     setPlayingTrack(track)
@@ -23,25 +27,25 @@ export default function Dashboard({ code }) {
     setLyrics("")
   }
 
-  useEffect(() => {
-    if (!playingTrack) return
+  // useEffect(() => {
+  //   if (!playingTrack) return
 
-    axios
-      .get("http://localhost:3001/lyrics", {
-        params: {
-          track: playingTrack.title,
-          artist: playingTrack.artist,
-        },
-      })
-      .then(res => {
-        setLyrics(res.data.lyrics)
+  //   axios
+  //     .get("http://localhost:3001/lyrics", {
+  //       params: {
+  //         track: playingTrack.title,
+  //         artist: playingTrack.artist,
+  //       },
+  //     })
+  //     .then(res => {
+  //       setLyrics(res.data.lyrics)
 
     
-      })
-  }, [playingTrack])
-  
-  // choosen album
-  console.log("playing track",playingTrack)
+  //     })
+  // }, [playingTrack])
+
+  // // choosen album
+  // console.log("choosen track",playingTrack)
 
   useEffect(() => {
     if (!accessToken) return
