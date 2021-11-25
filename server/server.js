@@ -50,6 +50,7 @@ app.post("/login", (req, res) => {
         expiresIn: data.body.expires_in,
         
       })
+      
     })
     .catch(err => {
       res.sendStatus(400)
@@ -57,11 +58,32 @@ app.post("/login", (req, res) => {
     })
 })
 
-/*app.get("/lyrics", async (req, res) => {
+app.post("/playlist", (req, res) => {
+ 
+  const spotifyApi = new SpotifyWebApi({
+    redirectUri: process.env.REDIRECT_URI,
+    clientId: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+   
+  })
+
+  spotifyApi.createPlaylist({ "name": req.body.name, 'description': req.body.description, 'public': true })
+  .then(function(data) {
+    console.log('Created playlist!');
+  }, function(err) {
+    console.log('Something went wrong!', err);
+  });
+
+})
+
+
+app.get("/lyrics", async (req, res) => {
   const lyrics =
     (await lyricsFinder(req.query.artist, req.query.track)) || "No Lyrics Found"
   res.json({ lyrics })
-})*/
+})
+
+
 
 app.listen(3001);
  
