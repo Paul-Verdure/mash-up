@@ -128,7 +128,7 @@ export default function Dashboard({ code }) {
           </div>
         )}
       </div>
- <CreatePlaylist />
+        <CreatePlaylist />
       <div>
         <Player accessToken={accessToken} trackUri={playingTrack?.uri} />
       </div>

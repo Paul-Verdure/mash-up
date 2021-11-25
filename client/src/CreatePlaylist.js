@@ -7,7 +7,8 @@ function CreatePlaylist() {
   
               axios.post("http://localhost:3001/playlist", {
                 name: 'My playlist',
-                description: 'Our party playlist'
+                description: 'Our party playlist',
+                public:false,
               })
               .then(function (response) {
                 console.log(response);
