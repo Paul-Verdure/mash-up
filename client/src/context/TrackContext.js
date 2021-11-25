@@ -5,6 +5,7 @@ export const TrackContext = createContext()
 const TrackContextProvider = ({children}) => {
     const [playingTrack, setPlayingTrack] = useState()
     const [lyrics, setLyrics] = useState("")
+    const [userFavoritList, setUserFavoritList] = useState([])
 
     useEffect(() => {
         if (!playingTrack) return
@@ -33,7 +34,9 @@ const TrackContextProvider = ({children}) => {
            setPlayingTrack,
            lyrics,
            setLyrics,
-           
+           userFavoritList,
+           setUserFavoritList
+
            }}>
             
             {children}
