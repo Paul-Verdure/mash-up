@@ -29,7 +29,7 @@ export default function Login() {
   
   return (
     <Container
-      className="d-flex justify-content-center align-items-center"
+      className="home"
       style={{ minHeight: "100vh" }}
     >
           <div className="signUpLoginBox">
