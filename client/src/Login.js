@@ -1,5 +1,5 @@
 import React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Container } from "react-bootstrap"
 
 const AUTH_URL =
@@ -20,6 +20,12 @@ export default function Login() {
 
   const {pseudo, password} = loginData; 
 
+  localStorage.setItem("key", "pseudo")
+  useEffect(() => {
+    // storing input name
+    localStorage.setItem("pseudo", JSON.stringify(pseudo));
+  }, [pseudo]);
+  localStorage.setItem("pseudo", JSON.stringify(pseudo));
   
   return (
     <Container
@@ -30,7 +36,7 @@ export default function Login() {
               <div className="slContainer">
                   <div className="formBoxleftSignUp"></div>
                   <div className="formBoxRight">
-                  <h2>Entre ton pseudo & ton code pour créer ta playlist collaborative </h2>
+                  <h2>Entre ton pseudo & ton code pour entrer sur la playlist collaborative </h2>
                       <div className="formContent">
                           <form>
                               <div className="inputBox">
