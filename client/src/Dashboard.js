@@ -6,6 +6,8 @@ import { Container, Form } from "react-bootstrap"
 import SpotifyWebApi from "spotify-web-api-node"
 import {TrackContext} from "./context/TrackContext";
 // import axios from "axios"
+import axios from "axios"
+import { Header } from "./components/header/Header"
 
 const spotifyApi = new SpotifyWebApi({
   clientId: "e48a09962c39496da4a072ca196590e4",
@@ -46,6 +48,25 @@ export default function Dashboard({ code }) {
 
   // // choosen album
   // console.log("choosen track",playingTrack)
+  useEffect(() => {
+    if (!playingTrack) return
+
+    axios
+      .get("http://localhost:3001/lyrics", {
+        params: {
+          track: playingTrack.title,
+          artist: playingTrack.artist,
+        },
+      })
+      .then(res => {
+        setLyrics(res.data.lyrics)
+
+    
+      })
+  }, [playingTrack])
+  
+  // choosen album
+  console.log("playing track",playingTrack)
 
   useEffect(() => {
     if (!accessToken) return
@@ -102,6 +123,7 @@ export default function Dashboard({ code }) {
 
   return (
     <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}>
+      <Header />
       <Form.Control
         type="search"
         placeholder="Search Songs/Artists"
