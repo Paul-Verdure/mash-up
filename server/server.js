@@ -48,10 +48,12 @@ app.post("/login", (req, res) => {
         accessToken: data.body.access_token,
         refreshToken: data.body.refresh_token,
         expiresIn: data.body.expires_in,
+        
       })
     })
     .catch(err => {
       res.sendStatus(400)
+      console.log(err)
     })
 })
 
