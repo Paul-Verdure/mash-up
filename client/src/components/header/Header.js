@@ -5,10 +5,7 @@ export const Header = () => {
         <header>
             
             <section className="header-banner">
-                
-                
-                
-                    
+                 
                 <div id="menuToggle">
     
                     <input type="checkbox" />

@@ -3,29 +3,82 @@ import { useState, useEffect } from "react"
 import { Container } from "react-bootstrap"
 import "./login.css";
 import { Header } from "./components/header/Header";
-
-
-
+import { v4 as uuidv4 } from 'uuid';
 
 
 const AUTH_URL =
   "https://accounts.spotify.com/authorize?client_id=e48a09962c39496da4a072ca196590e4&response_type=code&redirect_uri=http://localhost:3000&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state"
 
 export default function Login() {
+  // Local storage array user
 
-  const data = {
-    pseudo: '',
-    password:'',
+  const getLocalStorage = () => {
+
+    let allStoredUsers = localStorage.getItem("UserList")
+    if (allStoredUsers){
+      return (allStoredUsers = JSON.parse(localStorage.getItem("UserList")))
+     
+    }else{
+      return [
+
+        {
+          pseudo: "",
+          password: ""
+        },
+      ];
+    }
+  }   
+
+  
+  const [loginData, setLoginData]= useState(getLocalStorage());
+  const [newUserName, setNewUserName] = useState('');
+  const [newUserPassword,setNewUserPassword] = useState('');
+
+  const handleNewUserName = (event) => {
+    setNewUserName(event.target.value)
+  };
+
+  const handleNewUserPassword = (event)=> {
+    setNewUserPassword(event.target.value)
+
+
+  };
+
+
+  const handleClick = () => {
+  
+    
+    setLoginData((prevUsers) => [
+      ...prevUsers,
+      {
+        id: uuidv4(),
+        pseudo: newUserName,
+        password: newUserPassword
+      },
+    ]);
+
+    // record products in local storage
+    localStorage.setItem("UserList",JSON.stringify(loginData.concat([
+      {
+        id: uuidv4(),
+        pseudo: newUserName,
+        password: newUserPassword
+      },
+    ]))) 
+    
+
+    console.log(loginData)
   }
 
-  const [loginData, setLoginData]= useState(data);
+  // const {pseudo, password} = loginData; 
 
-  const handleChange = (e) => {
-    setLoginData({...loginData, [e.target.id]: e.target.value});
-  }
+  // localStorage.setItem("key", "pseudo")
 
-  const {pseudo, password} = loginData; 
-
+  // useEffect(() => {
+  //   // storing input name
+  //   localStorage.setItem("pseudo", JSON.stringify(pseudo));
+  // }, [pseudo]);
+  //   localStorage.setItem("pseudo", JSON.stringify(pseudo));
 
   
   return (
@@ -40,8 +93,12 @@ export default function Login() {
                   <h2>Entre ton pseudo & ton code pour entrer sur la playlist collaborative </h2>
                   </div>
                       <div className="formContent">
-                          <form>
+                          <form onClick={handleClick} >
+
+                              <div >
                               <div className="inputBox">
+                                  <input onChange={handleNewUserName} value={newUserName} type="text" id="pseudo" placeholder="Pseudo"/>
+
                                   <label htmlFor="pseudo">Pseudo</label>
                                   <input 
                                     onChange={handleChange} 
@@ -51,10 +108,17 @@ export default function Login() {
                                     placeholder="Pseudo" />
                               </div>
                               <div className="inputBox">
+
+                                <input onChange={handleNewUserPassword} value={newUserPassword} type="text" id="password" placeholder="Code de la Playlist"/>
+
                                 <label htmlFor="password">Entre le code de la Playlist</label>
                                 <input onChange={handleChange} value={password} type="text" id="password" placeholder="Code de la Playlist"/>
                               </div>
+
                               <div className="button__enterplay">
+
+                            </div>
+
                                 <a className="btn btn-success btn-lg" href={AUTH_URL}>
                                   Entre sur la Playlist
                                 </a>
@@ -64,8 +128,9 @@ export default function Login() {
                               </div>
                           </form>
                       </div>
+                  </div>
               </div>
-          </div>
+
     </Container>
   )
 }

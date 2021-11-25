@@ -1,12 +1,15 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect,useContext } from "react"
 import useAuth from "./useAuth"
 import Player from "./Player"
 import TrackSearchResult from "./TrackSearchResult"
 import { Container, Form } from "react-bootstrap"
 import SpotifyWebApi from "spotify-web-api-node"
+import {TrackContext} from "./context/TrackContext";
+// import axios from "axios"
 import axios from "axios"
 import CreatePlaylist from "./CreatePlaylist"
 import { Header } from "./components/header/Header"
+import Playlist from "./PlayList";
 
 
 const spotifyApi = new SpotifyWebApi({
@@ -16,17 +19,26 @@ const spotifyApi = new SpotifyWebApi({
 export default function Dashboard({ code }) {
   const accessToken = useAuth(code)
   const [search, setSearch] = useState("")
+  const [playlistIsOn, setPLaylistIsOn] = useState(false)
   const [searchResults, setSearchResults] = useState([])
-  const [playingTrack, setPlayingTrack] = useState()
-  const [lyrics, setLyrics] = useState("")
+  const {playingTrack, setPlayingTrack,lyrics,setLyrics,userFavoritList, setUserFavoritList} = useContext(TrackContext)
 
   function chooseTrack(track) {
     setPlayingTrack(track)
     setSearch("")
     setLyrics("")
   }
-
  
+  
+  const handleClick = (track) =>{
+    setUserFavoritList((prevList) => [...prevList, track]);
+   
+  }
+  console.log("userFavoriteList",userFavoritList)
+
+  const handleFavoritePlayList = () => {
+    setPLaylistIsOn(!playlistIsOn)
+  }
 
   useEffect(() => {
     if (!playingTrack) return
@@ -45,8 +57,8 @@ export default function Dashboard({ code }) {
       })
   }, [playingTrack])
   
-  // choosen album
-  console.log("playing track",playingTrack)
+  // choosen onclicked image album
+  console.log("choosen onclicked image album",playingTrack)
 
   useEffect(() => {
     if (!accessToken) return
@@ -76,7 +88,7 @@ export default function Dashboard({ code }) {
           // data object
           console.log("track artists search bar",track.artists[0].name)
           console.log("title ",track.name)
-          console.log("artiste uri",track.uri)
+          console.log("artiste vinil",track.uri)
           console.log("album img url", smallestAlbumImage.url)
 
           return {
@@ -116,9 +128,10 @@ export default function Dashboard({ code }) {
             track={track}
             key={track.uri}
             chooseTrack={chooseTrack}
+            handleClick={()=> {handleClick(track.uri)}}
           />
         ))}
-
+      
         {console.log("result from search",searchResults)}
 
 
@@ -128,7 +141,15 @@ export default function Dashboard({ code }) {
           </div>
         )}
       </div>
+
         <CreatePlaylist />
+
+      <button onClick={handleFavoritePlayList}>Afficher playlist</button>
+
+
+
+      {playlistIsOn ? <Playlist/> : null}
+
       <div>
         <Player accessToken={accessToken} trackUri={playingTrack?.uri} />
       </div>
