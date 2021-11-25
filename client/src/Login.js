@@ -101,8 +101,7 @@ export default function Login() {
 
                                   <label htmlFor="pseudo">Pseudo</label>
                                   <input 
-                                    onChange={handleChange} 
-                                    value={pseudo} 
+                                    value="pseudo"
                                     type="text" 
                                     id="pseudo" 
                                     placeholder="Pseudo" />
@@ -112,7 +111,7 @@ export default function Login() {
                                 <input onChange={handleNewUserPassword} value={newUserPassword} type="text" id="password" placeholder="Code de la Playlist"/>
 
                                 <label htmlFor="password">Entre le code de la Playlist</label>
-                                <input onChange={handleChange} value={password} type="text" id="password" placeholder="Code de la Playlist"/>
+                                <input  value="password" type="text" id="password" placeholder="Code de la Playlist"/>
                               </div>
 
                               <div className="button__enterplay">
