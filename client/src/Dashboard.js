@@ -35,8 +35,13 @@ export default function Dashboard({ code }) {
       })
       .then(res => {
         setLyrics(res.data.lyrics)
+
+    
       })
   }, [playingTrack])
+  
+  // choosen album
+  console.log("playing track",playingTrack)
 
   useEffect(() => {
     if (!accessToken) return
@@ -49,6 +54,9 @@ export default function Dashboard({ code }) {
 
     let cancel = false
     spotifyApi.searchTracks(search).then(res => {
+
+       // ===  Track Album from search bar ===
+     
       if (cancel) return
       setSearchResults(
         res.body.tracks.items.map(track => {
@@ -58,20 +66,35 @@ export default function Dashboard({ code }) {
               return smallest
             },
             track.album.images[0]
+            
           )
+          // data object
+          console.log("track artists search bar",track.artists[0].name)
+          console.log("title ",track.name)
+          console.log("artiste uri",track.uri)
+          console.log("album img url", smallestAlbumImage.url)
 
           return {
+           
             artist: track.artists[0].name,
             title: track.name,
             uri: track.uri,
             albumUrl: smallestAlbumImage.url,
           }
         })
+       
       )
+     
+
+    
     })
+
+      
 
     return () => (cancel = true)
   }, [search, accessToken])
+
+  
 
   return (
     <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}>
@@ -89,6 +112,10 @@ export default function Dashboard({ code }) {
             chooseTrack={chooseTrack}
           />
         ))}
+
+        {console.log("result from search",searchResults)}
+
+
         {searchResults.length === 0 && (
           <div className="text-center" style={{ whiteSpace: "pre" }}>
             {lyrics}
