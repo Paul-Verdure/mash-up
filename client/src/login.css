@@ -1,5 +1,45 @@
-home{
-    grid-template-columns: 1fr 1fr;
+.home{
+    display: grid;
+    grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
+    width: 100vw;
+    height: 100vh;
 
 }
+
+.text_explain{
+    margin-top: -20px;
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.formContent{
+    margin-top: 50px;
+    grid-row: 2;
+}
+.inputBox{
+    grid-row: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button__enterplay{
+    grid-row: 3;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+.button__newplay{
+    grid-row: 3;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+
+

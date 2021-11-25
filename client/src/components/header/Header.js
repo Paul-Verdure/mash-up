@@ -21,12 +21,11 @@ export const Header = () => {
                         <a href="#"><li>Home</li></a>
                         <a href="#"><li>About</li></a>
                         <a href="#"><li>Info</li></a>
-                        <a href="#"><li>Contact</li></a>
-                        
+                        <a href="#"><li>Contact</li></a>               
                     </ul>
                 </div>
                 <div>
-                    <h2>nom de l'appli</h2>
+                    <h2>Mash-Up</h2>
                 </div>
                 
                 <div className="logo-container">
