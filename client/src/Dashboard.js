@@ -5,9 +5,10 @@ import TrackSearchResult from "./TrackSearchResult"
 import { Container, Form } from "react-bootstrap"
 import SpotifyWebApi from "spotify-web-api-node"
 import axios from "axios"
+import CreatePlaylist from "./CreatePlaylist"
 
 const spotifyApi = new SpotifyWebApi({
-  clientId: "8b945ef10ea24755b83ac50cede405a0",
+  clientId: "e48a09962c39496da4a072ca196590e4",
 })
 
 export default function Dashboard({ code }) {
@@ -22,6 +23,8 @@ export default function Dashboard({ code }) {
     setSearch("")
     setLyrics("")
   }
+
+ 
 
   useEffect(() => {
     if (!playingTrack) return
@@ -95,6 +98,7 @@ export default function Dashboard({ code }) {
           </div>
         )}
       </div>
+ <CreatePlaylist />
       <div>
         <Player accessToken={accessToken} trackUri={playingTrack?.uri} />
       </div>
