@@ -10,6 +10,8 @@ import axios from "axios"
 
 import { Header } from "./components/header/Header"
 import Playlist from "./PlayList";
+import "./app.css";
+
 
 
 const spotifyApi = new SpotifyWebApi({

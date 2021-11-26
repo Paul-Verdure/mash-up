@@ -4,8 +4,41 @@
     grid-template-rows: 1fr 1fr 1fr;
     width: 100vw;
     height: 100vh;
+    background-image: url(./assets/image.jpg);
+    background-repeat: no-repeat;
+    background-size: 350%;
+    background-position:  top 150px center;
 
 }
+
+@media screen and (min-width: 767px) {
+    .home {
+        background-size: cover;
+    }
+    .formContent{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    label{
+        margin-right: 20px;
+        font-weight: bold;
+        font-size: 20px;
+    }
+  
+  }  
+
+  label{
+    margin-right: 20px;
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(22, 22, 214);
+    margin-left: 15px;
+}
+input{
+    margin-right: 15px;
+}
+  
 
 .text_explain{
     margin-top: -20px;
@@ -13,6 +46,14 @@
     display: flex;
     justify-content: center;
     align-content: center;
+    margin: 20px;
+    font-weight: bold;
+
+}
+.text_explain_h2{
+    display: flex;
+    text-align: center;
+    color: rgb(22, 22, 214)
 }
 
 .formContent{
@@ -33,13 +74,7 @@
     border-radius: 20px;
     margin-top: 20px;
 }
-.button__newplay{
-    grid-row: 3;
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    border-radius: 20px;
-}
+
 
 
 

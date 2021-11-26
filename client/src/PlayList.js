@@ -3,11 +3,14 @@ import { useContext } from "react"
 import PlayerPlayList from "./PlayerPlayList";
 
 
-const PlayList = () => {
+const PlayList = (playlistNumber) => {
     const {userFavoritList, setUserFavoritList} = useContext(TrackContext)
 
     console.log("lecteur", userFavoritList);
     const {dropDownPlayList} = useContext(TrackContext)
+
+    console.log(playlistNumber)
+
     
 
     return (

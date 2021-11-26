@@ -1,8 +1,9 @@
 import "./Header.css"
 
+
 export const Header = () => {
     return (
-        <header>
+        <header className="header">
             
             <section className="header-banner">
                  

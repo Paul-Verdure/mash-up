@@ -70,6 +70,20 @@ export default function Login() {
     console.log(loginData)
   }
 
+  const playlistNumber = [
+    {
+      id:"1",
+      password:"512",
+      pseudo:"Paul",
+      name:"Soirée de Noel",
+      title:"Highway to Hell",
+      artiste:"AC∕DC",
+      albumUrl:"https://i.scdn.co/image/ab67616d0000485151c02a77d09dfcd53c8676d0",
+    }
+  ]
+
+  console.log(playlistNumber)
+
   // const {pseudo, password} = loginData; 
 
   // localStorage.setItem("key", "pseudo")
@@ -90,24 +104,19 @@ export default function Login() {
           <div className="signUpLoginBox">
               <div className="slContainer">
                   <div className="text_explain">
-                  <h2>Entre ton pseudo & ton code pour entrer sur la playlist collaborative </h2>
+                  <h2 className="text_explain_h2">Entre ton pseudo & ton code pour entrer sur la playlist collaborative </h2>
                   </div>
                       <div className="formContent">
                           <form onClick={handleClick} >
 
-                              <div >
+                              <div>
                               <div className="inputBox">
                                   <label htmlFor="pseudo">Pseudo</label>
                                   <input onChange={handleNewUserName} value={newUserName} type="text" id="pseudo" placeholder="Pseudo"/>
-
-                                  
-
                               </div>
                               <div className="inputBox">
                                 <label htmlFor="password">Entre le code de la Playlist</label>
                                 <input onChange={handleNewUserPassword} value={newUserPassword} type="text" id="password" placeholder="Code de la Playlist"/>
-
-                                
                               </div>
 
                               <div className="button__enterplay">
@@ -120,6 +129,7 @@ export default function Login() {
                                 </a>
                               </div>
                               </div>
+
                           </form>
                       </div>
                   </div>
