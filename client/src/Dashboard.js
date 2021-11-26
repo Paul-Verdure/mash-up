@@ -7,7 +7,7 @@ import SpotifyWebApi from "spotify-web-api-node"
 import {TrackContext} from "./context/TrackContext";
 // import axios from "axios"
 import axios from "axios"
-import CreatePlaylist from "./CreatePlaylist"
+
 import { Header } from "./components/header/Header"
 import Playlist from "./PlayList";
 
@@ -32,7 +32,6 @@ export default function Dashboard({ code }) {
   
   const handleClick = (track) =>{
     setUserFavoritList((prevList) => [...prevList, track]);
-   
   }
   console.log("userFavoriteList",userFavoritList)
 
@@ -71,9 +70,7 @@ export default function Dashboard({ code }) {
 
     let cancel = false
     spotifyApi.searchTracks(search).then(res => {
-
        // ===  Track Album from search bar ===
-     
       if (cancel) return
       setSearchResults(
         res.body.tracks.items.map(track => {
@@ -83,7 +80,6 @@ export default function Dashboard({ code }) {
               return smallest
             },
             track.album.images[0]
-            
           )
           // data object
           console.log("track artists search bar",track.artists[0].name)
@@ -98,15 +94,11 @@ export default function Dashboard({ code }) {
             uri: track.uri,
             albumUrl: smallestAlbumImage.url,
           }
-        })
-       
-      )
-     
-
-    
+        }) 
+      )    
     })
 
-      
+
 
     return () => (cancel = true)
   }, [search, accessToken])
@@ -128,7 +120,7 @@ export default function Dashboard({ code }) {
             track={track}
             key={track.uri}
             chooseTrack={chooseTrack}
-            handleClick={()=> {handleClick(track.uri)}}
+            handleClick={()=> {handleClick(track)}}
           />
         ))}
       
@@ -142,9 +134,8 @@ export default function Dashboard({ code }) {
         )}
       </div>
 
-        <CreatePlaylist />
 
-      <button onClick={handleFavoritePlayList}>Afficher playlist</button>
+      <button className="btn btn-success btn-lg" onClick={handleFavoritePlayList}>Afficher playlist</button>
 
 
 

@@ -8,8 +8,11 @@ const PlayList = () => {
     return (
         <div className="container">
             {
-                userFavoritList.map(dataUri=>(
-                    <h1>{dataUri}</h1>
+                userFavoritList.map(dataUri=>( 
+                    <div>
+                        <h1>{dataUri.uri}</h1>
+                        <img src={dataUri.title} alt=""/>
+                    </div>
                 ))
             }
         </div>

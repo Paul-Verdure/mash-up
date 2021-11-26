@@ -97,33 +97,28 @@ export default function Login() {
 
                               <div >
                               <div className="inputBox">
+                                  <label htmlFor="pseudo">Pseudo</label>
                                   <input onChange={handleNewUserName} value={newUserName} type="text" id="pseudo" placeholder="Pseudo"/>
 
-                                  <label htmlFor="pseudo">Pseudo</label>
-                                  <input 
-                                    value="pseudo"
-                                    type="text" 
-                                    id="pseudo" 
-                                    placeholder="Pseudo" />
+                                  
+
                               </div>
                               <div className="inputBox">
-
+                                <label htmlFor="password">Entre le code de la Playlist</label>
                                 <input onChange={handleNewUserPassword} value={newUserPassword} type="text" id="password" placeholder="Code de la Playlist"/>
 
-                                <label htmlFor="password">Entre le code de la Playlist</label>
-                                <input  value="password" type="text" id="password" placeholder="Code de la Playlist"/>
+                                
                               </div>
 
                               <div className="button__enterplay">
 
                             </div>
+                            <div className="button__enterplay">
 
                                 <a className="btn btn-success btn-lg" href={AUTH_URL}>
                                   Entre sur la Playlist
                                 </a>
                               </div>
-                              <div className="button__newplay">
-                              <button className="btn btn-success btn-lg">Créer une nouvelle playlist</button>
                               </div>
                           </form>
                       </div>
