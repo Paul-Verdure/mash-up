@@ -31,6 +31,16 @@
     font-weight: bold;
     font-size: 20px;
   }
+  .button__enterplay {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+label {
+  margin-right: 20px;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 label {
@@ -72,16 +82,20 @@ input {
   padding: 5px;
 }
 
-.formContent {
-  margin-top: 50px;
-  grid-row: 2;
-}
-.inputBox {
-  grid-row: 2;
+.button__enterplay {
+  grid-row: 3;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  text-align: center;
+  border-radius: 20px;
+  margin-top: 20px;
+  flex-direction: column;
+}
+
+.fond {
+  background-color: rgba(218, 80, 52, 0.7);
+  border-radius: 5px;
+  padding: 10px;
 }
 
 .button__enterplay {

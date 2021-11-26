@@ -126,18 +126,20 @@ export default function Login() {
                               <div className="button__enterplay">
 
                             </div>
-                            <div className="button__enterplay">
-
-                                <a className="btn btn-warning btn-lg" href={AUTH_URL}>
-                                  Go Playlist
-                                </a>
-                              </div>
+                            
                               
 
 
                           </form>
-                          <button className="btn btn-success btn-lg " onClick={showNew}>Nouvelle playlist</button>
+                          <div className="button__enterplay">
+
+                                <a className="btn btn-warning btn-lg" href={AUTH_URL}>
+                                  Go Playlist
+                                </a>
+                                <button className="btn btn-warning btn-lg mt-5" onClick={showNew}>Créé une nouvelle playlist</button>
                                 {newCode ? <New/> : null}
+                          
+                              </div>
 
                            </div>     
                       </div>
