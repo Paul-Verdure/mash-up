@@ -11,6 +11,14 @@
     background-position:  top 150px center;
 
 }
+.container__playlist{
+    display: flex;
+    flex-direction: column;
+    padding-top: .5;
+    padding-bottom: .5;
+
+}   
+
 
 @media screen and (min-width: 767px) {
     .container__home{

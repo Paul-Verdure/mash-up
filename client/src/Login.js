@@ -112,8 +112,7 @@ export default function Login() {
                       <div className="formContent">
                           <form onClick={handleClick} >
 
-                              <div>
-
+                              <div className="fond">
                               <div className="inputBox">
                                   <label htmlFor="pseudo">Pseudo</label>
                                   <input onChange={handleNewUserName} value={newUserName} type="text" id="pseudo" placeholder="Pseudo"/>
