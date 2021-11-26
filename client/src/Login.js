@@ -107,12 +107,12 @@ export default function Login() {
           <div className="signUpLoginBox">
               <div className="slContainer">
                   <div className="text_explain">
-                  <h2 className="text_explain_h2">Entre ton pseudo & ton code pour entrer sur la playlist collaborative </h2>
+                  <h2 className="text_explain_h2">Entre ton pseudo & ton code pour accèder à la playlist collaborative </h2>
                   </div>
                       <div className="formContent">
                           <form onClick={handleClick} >
 
-                              <div>
+                              <div className="fond">
                               <div className="inputBox">
                                   <label htmlFor="pseudo">Pseudo</label>
                                   <input onChange={handleNewUserName} value={newUserName} type="text" id="pseudo" placeholder="Pseudo"/>
@@ -128,7 +128,7 @@ export default function Login() {
                             <div className="button__enterplay">
 
                                 <a className="btn btn-warning btn-lg " href={AUTH_URL}>
-                                  Entre sur la Playlist
+                                  Go Playlist
                                 </a>
                               </div>
                               </div>

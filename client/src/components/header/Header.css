@@ -19,8 +19,6 @@
 .logo {
   height: 7rem;
   width: 25rem;
-  display: flex;
-  justify-content: center;
 }
 
 #menuToggle {
