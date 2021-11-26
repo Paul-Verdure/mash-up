@@ -19,10 +19,14 @@
     flex-direction: row;
     justify-content: space-around;
   }
+  .logo {
+    height: 7rem;
+    width: 25rem;
+  }
 }
 .logo {
-  height: 7rem;
-  width: 25rem;
+  height: 5rem;
+  width: 15rem;
 }
 
 #menuToggle {
