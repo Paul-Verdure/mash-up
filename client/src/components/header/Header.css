@@ -9,7 +9,6 @@
   margin: 0;
   padding: 3rem;
   display: flex;
-  flex-direction: row;
   background: #ebdbba;
   color: #46948C;
   font-family: "Avenir Next", "Avenir", sans-serif;
@@ -21,14 +20,16 @@
     flex-direction: row;
     justify-content: space-around;
   }
+  .logo {
+    height: 7rem;
+    width: 25rem;
+  }
 
 
 }  
 .logo {
   height: 5rem;
   width: 15rem;
-  display: flex;
-  justify-content: center;
 }
 
 #menuToggle {
