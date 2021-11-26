@@ -51,7 +51,7 @@ export default function Login() {
   }
 
   const handleClick = (e) => {
-  e.preventDefault()
+
     
     setLoginData((prevUsers) => [
       ...prevUsers,
@@ -132,9 +132,10 @@ export default function Login() {
                                 </a>
                               </div>
                               </div>
-                              <button onClick={showNew}>Créer une nouvelle playlist</button>
-                                {newCode ? <New/> : null}
+                       
                           </form>
+                          <button onClick={showNew}>Créé une nouvelle playlist</button>
+                                {newCode ? <New/> : null}
                       </div>
                   </div>
               </div>
