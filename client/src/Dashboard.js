@@ -14,6 +14,7 @@ import "./app.css";
 
 
 
+
 const spotifyApi = new SpotifyWebApi({
   clientId: "e48a09962c39496da4a072ca196590e4",
 })
@@ -26,28 +27,24 @@ export default function Dashboard({ code }) {
   const [isLiked,setIsLike] = useState(false)
   const {playingTrack, setPlayingTrack,lyrics,setLyrics,userFavoritList, setUserFavoritList,dropDownPlaylist,setDropDownPlayList} = useContext(TrackContext)
   
+
+
   function chooseTrack(track) {
     setPlayingTrack(track)
     setSearch("")
     setLyrics("")
   }
  
-  
+ 
   const handleClick = (track) =>{
-    if (isLiked){
+   
       setUserFavoritList((prevList) => [...prevList, track.uri]);
       setDropDownPlayList((prevList) => [...prevList, track])
-
-    }else {
-      setDropDownPlayList([])
-      
-
-    }
-    setIsLike(!isLiked)
-
-   
-   
   }
+
+
+
+
   console.log("userFavoriteList",userFavoritList)
   console.log("isLiked?", isLiked)
   console.log("playingtrack",playingTrack)
@@ -115,12 +112,14 @@ export default function Dashboard({ code }) {
       )    
     })
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 83a0f02ad0a7d44faae0d2777f43c8d5f3933d2d
 
     return () => (cancel = true)
   }, [search, accessToken])
 
-  
 
   return (
     <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}>
@@ -132,13 +131,14 @@ export default function Dashboard({ code }) {
         onChange={e => setSearch(e.target.value)}
       />
       <div className="flex-grow-1 my-2" style={{ overflowY: "auto" }}>
-        {searchResults.map(track => (
+        {searchResults.map((track) => (
           <TrackSearchResult
             track={track}
-            key={track.uri}
-            value={track.uri}
+            key={track}
             chooseTrack={chooseTrack}
-            handleClick={()=> {handleClick(track)}}
+            handleClick={()=>{handleClick(track)}}
+            
+            
           />
         ))}
       
@@ -151,7 +151,7 @@ export default function Dashboard({ code }) {
           </div>
         )}
       </div>
-      <button className="btn btn-success btn-lg" onClick={handleFavoritePlayList}>Afficher playlist</button>
+      <button className="btn-warning btn-lg " onClick={handleFavoritePlayList}>Afficher playlist</button>
       {playlistIsOn ? <Playlist /> : null}
       <div>
         <Player accessToken={accessToken} trackUri={playingTrack?.uri} />
