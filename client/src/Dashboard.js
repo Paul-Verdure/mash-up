@@ -128,7 +128,7 @@ export default function Dashboard({ code }) {
             track={track}
             key={track.uri}
             chooseTrack={chooseTrack}
-            handleClick={()=> {handleClick(track.uri)}}
+            handleClick={()=> {handleClick(track)}}
           />
         ))}
       
