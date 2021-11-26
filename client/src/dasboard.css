@@ -1,0 +1,6 @@
+.container__playlist{
+    display: flex;
+    flex-direction: column;
+    padding-top: .5;
+    padding-bottom: .5;
+}

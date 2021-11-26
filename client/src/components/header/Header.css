@@ -1,4 +1,4 @@
-.header{
+.header {
   width: 100%;
   height: 150px;
   background: #ebdbba;
@@ -10,12 +10,17 @@
   padding: 3rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
   background: #ebdbba;
-  color: #46948C;
+  color: #46948c;
   font-family: "Avenir Next", "Avenir", sans-serif;
 }
 
+@media screen and (min-width: 767px) {
+  .header-banner {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
 .logo {
   height: 7rem;
   width: 25rem;
@@ -35,7 +40,7 @@
 
 #menuToggle a {
   text-decoration: none;
-  color: #46948C;
+  color: #46948c;
 
   transition: color 0.3s ease;
 }
@@ -70,7 +75,7 @@
   margin-bottom: 5px;
   position: relative;
 
-  background: #46948C;
+  background: #46948c;
   border-radius: 3px;
 
   z-index: 1;
@@ -78,7 +83,7 @@
   transform-origin: 4px 0px;
 
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
-    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), 0.55s ease;
 }
 
 #menuToggle span:first-child {
@@ -86,7 +91,7 @@
 }
 
 #menuToggle span:nth-last-child(2) {
-  transform-origin: 0% 100%;
+  transform-origin: 00% 100%;
 }
 
 /* 
@@ -121,7 +126,7 @@
 #menu {
   position: absolute;
   width: 300px;
-  margin: -100px 0 0 -150px;
+  margin: -100px 0 0 -20px;
   padding: 50px;
   padding-top: 125px;
 
@@ -130,8 +135,8 @@
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
 
-  transform-origin: 0% 0%;
-  transform: translate(-100%, 0);
+  transform-origin: 0% 00%;
+  transform: translate(-200%, 0);
 
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
