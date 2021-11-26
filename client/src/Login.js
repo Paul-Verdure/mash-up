@@ -108,6 +108,7 @@ export default function Login() {
                           <form onClick={handleClick} >
 
                               <div>
+
                               <div className="inputBox">
                                   <label htmlFor="pseudo">Pseudo</label>
                                   <input onChange={handleNewUserName} value={newUserName} type="text" id="pseudo" placeholder="Pseudo"/>
@@ -116,7 +117,7 @@ export default function Login() {
                                 <label htmlFor="password">Entre le code de la Playlist</label>
                                 <input onChange={handleNewUserPassword} value={newUserPassword} type="text" id="password" placeholder="Code de la Playlist"/>
                               </div>
-
+                              </div>
                               <div className="button__enterplay">
 
                             </div>
@@ -126,7 +127,7 @@ export default function Login() {
                                   Entre sur la Playlist
                                 </a>
                               </div>
-                              </div>
+
 
                           </form>
                       </div>

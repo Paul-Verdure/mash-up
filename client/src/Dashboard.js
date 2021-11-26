@@ -11,6 +11,7 @@ import axios from "axios"
 import { Header } from "./components/header/Header"
 import Playlist from "./PlayList";
 import "./app.css";
+import "./dasboard.css"
 
 
 
@@ -118,7 +119,7 @@ export default function Dashboard({ code }) {
 
 
   return (
-    <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}>
+    <div className="container__playlist">
       <Header />
       <Form.Control
         type="search"
@@ -152,6 +153,6 @@ export default function Dashboard({ code }) {
       <div>
         <Player accessToken={accessToken} trackUri={playingTrack?.uri} />
       </div>
-    </Container>
+    </div>
   )
 }
