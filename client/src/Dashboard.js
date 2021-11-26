@@ -19,7 +19,7 @@ export default function Dashboard({ code }) {
   const [search, setSearch] = useState("")
   const [playlistIsOn, setPLaylistIsOn] = useState(false)
   const [searchResults, setSearchResults] = useState([])
-  const {playingTrack, setPlayingTrack,lyrics,setLyrics,userFavoritList, setUserFavoritList} = useContext(TrackContext)
+  const {playingTrack, setPlayingTrack,lyrics,setLyrics,userFavoritList, setUserFavoritList,dropDownPlaylist,setDropDownPlayList} = useContext(TrackContext)
 
   function chooseTrack(track) {
     setPlayingTrack(track)
@@ -29,10 +29,12 @@ export default function Dashboard({ code }) {
  
   
   const handleClick = (track) =>{
-    setUserFavoritList((prevList) => [...prevList, track]);
+    setUserFavoritList((prevList) => [...prevList, track.uri]);
+    setDropDownPlayList((prevList) => [...prevList, track])
    
   }
   console.log("userFavoriteList",userFavoritList)
+  console.log("playingtrack",playingTrack)
 
   const handleFavoritePlayList = () => {
     setPLaylistIsOn(!playlistIsOn)
@@ -129,7 +131,7 @@ export default function Dashboard({ code }) {
             track={track}
             key={track.uri}
             chooseTrack={chooseTrack}
-            handleClick={()=> {handleClick(track.uri)}}
+            handleClick={()=> {handleClick(track)}}
           />
         ))}
       

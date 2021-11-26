@@ -2,14 +2,18 @@ import {TrackContext} from "./context/TrackContext";
 import { useContext } from "react"
 
 const PlayList = () => {
-    const {userFavoritList, setUserFavoritList} = useContext(TrackContext)
+    const {dropDownPlayList} = useContext(TrackContext)
 
 
     return (
         <div className="container">
             {
-                userFavoritList.map(dataUri=>(
-                    <h1>{dataUri}</h1>
+                dropDownPlayList.map(data=>(
+                    <div key={data.title}>
+                    <h1>Artiste : {data.title}</h1>
+                    <h1>Title : {data.artist}</h1>
+                    <img src={data.albumUrl} alt="url album"/>
+                    </div>
                 ))
             }
         </div>

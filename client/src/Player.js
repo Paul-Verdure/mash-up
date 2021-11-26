@@ -3,19 +3,16 @@ import SpotifyPlayer from "react-spotify-web-playback"
 import {TrackContext} from "./context/TrackContext";
 
 export default function Player({ accessToken, trackUri }) {
-  const {userFavoritList,setUserFavoritList} = useContext(TrackContext)
+  const {userFavoritList} = useContext(TrackContext)
   const [play, setPlay] = useState(false)
 
   useEffect(() => 
   
-  
-  
   setPlay(true), 
-  
   
   [trackUri])
 
-  console.log("trackuri",typeof(trackUri),"favorite",typeof(userFavoritList[0]))
+  
   if (!accessToken) return null
   return (
     <SpotifyPlayer
