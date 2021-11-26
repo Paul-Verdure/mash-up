@@ -4,6 +4,7 @@ import { Container } from "react-bootstrap"
 import "./login.css";
 import { Header } from "./components/header/Header";
 import { v4 as uuidv4 } from 'uuid';
+import New from "./New";
 
 
 const AUTH_URL =
@@ -33,6 +34,7 @@ export default function Login() {
   const [loginData, setLoginData]= useState(getLocalStorage());
   const [newUserName, setNewUserName] = useState('');
   const [newUserPassword,setNewUserPassword] = useState('');
+  const [newCode, setNewCode] = useState(false);
 
   const handleNewUserName = (event) => {
     setNewUserName(event.target.value)
@@ -44,9 +46,12 @@ export default function Login() {
 
   };
 
+  const showNew = () => {
+    setNewCode(!newCode);
+  }
 
-  const handleClick = () => {
-  
+  const handleClick = (e) => {
+
     
     setLoginData((prevUsers) => [
       ...prevUsers,
@@ -130,6 +135,8 @@ export default function Login() {
 
 
                           </form>
+                          <button onClick={showNew}>Créé une nouvelle playlist</button>
+                                {newCode ? <New/> : null}
                       </div>
                   </div>
               </div>

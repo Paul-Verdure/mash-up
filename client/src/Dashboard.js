@@ -7,7 +7,6 @@ import SpotifyWebApi from "spotify-web-api-node"
 import {TrackContext} from "./context/TrackContext";
 // import axios from "axios"
 import axios from "axios"
-
 import { Header } from "./components/header/Header"
 import Playlist from "./PlayList";
 import "./app.css";
