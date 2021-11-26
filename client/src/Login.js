@@ -110,9 +110,10 @@ export default function Login() {
                   <h2 className="text_explain_h2">Entre ton pseudo & ton code pour accèder à la playlist collaborative </h2>
                   </div>
                       <div className="formContent">
+                        <div className="fond">
                           <form onClick={handleClick} >
 
-                              <div className="fond">
+                              
                               <div className="inputBox">
                                   <label htmlFor="pseudo">Pseudo</label>
                                   <input onChange={handleNewUserName} value={newUserName} type="text" id="pseudo" placeholder="Pseudo"/>
@@ -121,21 +122,24 @@ export default function Login() {
                                 <label htmlFor="password">Entre le code de la Playlist</label>
                                 <input onChange={handleNewUserPassword} value={newUserPassword} type="text" id="password" placeholder="Code de la Playlist"/>
                               </div>
-                              </div>
+                              
                               <div className="button__enterplay">
 
                             </div>
                             <div className="button__enterplay">
 
-                                <a className="btn btn-warning btn-lg " href={AUTH_URL}>
+                                <a className="btn btn-warning btn-lg" href={AUTH_URL}>
                                   Go Playlist
                                 </a>
                               </div>
+                              
 
 
                           </form>
-                          <button onClick={showNew}>Créé une nouvelle playlist</button>
+                          <button className="btn btn-success btn-lg " onClick={showNew}>Nouvelle playlist</button>
                                 {newCode ? <New/> : null}
+
+                           </div>     
                       </div>
                   </div>
               </div>
