@@ -13,3 +13,10 @@
     margin: 0 0 0 0 ;
     width: 100%;
 }
+
+
+.container__playList{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}

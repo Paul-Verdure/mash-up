@@ -19,7 +19,6 @@ export default function TrackSearchResult({ track, chooseTrack, handleClick }) {
         <div className="text-muted">{track.artist}</div>
         <button className="btn-warning btn-sm"
          onClick={handleClick}
-         value={value}
          >Ajouter a la playlist</button>
       </div>
     </div>
