@@ -10,6 +10,7 @@ import axios from "axios"
 import { Header } from "./components/header/Header"
 import Playlist from "./PlayList";
 
+
 const spotifyApi = new SpotifyWebApi({
   clientId: "e48a09962c39496da4a072ca196590e4",
 })
@@ -19,9 +20,8 @@ export default function Dashboard({ code }) {
   const [search, setSearch] = useState("")
   const [playlistIsOn, setPLaylistIsOn] = useState(false)
   const [searchResults, setSearchResults] = useState([])
-  const [isLiked,setIsLike] = useState(false)
-  const {playingTrack, setPlayingTrack,lyrics,setLyrics,userFavoritList, setUserFavoritList,dropDownPlaylist,setDropDownPlayList} = useContext(TrackContext)
-  
+  const {playingTrack, setPlayingTrack,lyrics,setLyrics,userFavoritList, setUserFavoritList} = useContext(TrackContext)
+
   function chooseTrack(track) {
     setPlayingTrack(track)
     setSearch("")
@@ -30,31 +30,15 @@ export default function Dashboard({ code }) {
  
   
   const handleClick = (track) =>{
-    if (isLiked){
-      setUserFavoritList((prevList) => [...prevList, track.uri]);
-      setDropDownPlayList((prevList) => [...prevList, track])
-
-    }else {
-      setDropDownPlayList([])
-      
-
-    }
-    setIsLike(!isLiked)
-
-   
+    setUserFavoritList((prevList) => [...prevList, track]);
    
   }
   console.log("userFavoriteList",userFavoritList)
-  console.log("isLiked?", isLiked)
-  console.log("playingtrack",playingTrack)
 
   const handleFavoritePlayList = () => {
     setPLaylistIsOn(!playlistIsOn)
-
-
   }
-     
- 
+
   useEffect(() => {
     if (!playingTrack) return
 
@@ -142,9 +126,8 @@ export default function Dashboard({ code }) {
           <TrackSearchResult
             track={track}
             key={track.uri}
-            value={track.uri}
             chooseTrack={chooseTrack}
-            handleClick={()=> {handleClick(track)}}
+            handleClick={()=> {handleClick(track.uri)}}
           />
         ))}
       
@@ -157,11 +140,13 @@ export default function Dashboard({ code }) {
           </div>
         )}
       </div>
+
       <button onClick={handleFavoritePlayList}>Afficher playlist</button>
 
 
 
       {playlistIsOn ? <Playlist/> : null}
+
       <div>
         <Player accessToken={accessToken} trackUri={playingTrack?.uri} />
       </div>
