@@ -111,16 +111,16 @@ export default function Login() {
                   </div>
                       <div className="formContent">
                         <div className="fond">
-                          <form onClick={handleClick} >
+                          <form >
 
                               
                               <div className="inputBox">
                                   <label htmlFor="pseudo">Pseudo</label>
-                                  <input onChange={handleNewUserName} value={newUserName} type="text" id="pseudo" placeholder="Pseudo"/>
+                                  <input  type="text" id="pseudo" placeholder="Pseudo"/>
                               </div>
                               <div className="inputBox">
                                 <label htmlFor="password">Entre le code de la Playlist</label>
-                                <input onChange={handleNewUserPassword} value={newUserPassword} type="text" id="password" placeholder="Code de la Playlist"/>
+                                <input type="text" id="password" placeholder="Code de la Playlist"/>
                               </div>
                               
                               <div className="button__enterplay">
