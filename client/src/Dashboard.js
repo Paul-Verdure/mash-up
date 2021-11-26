@@ -7,7 +7,6 @@ import SpotifyWebApi from "spotify-web-api-node"
 import {TrackContext} from "./context/TrackContext";
 // import axios from "axios"
 import axios from "axios"
-import CreatePlaylist from "./CreatePlaylist"
 import { Header } from "./components/header/Header"
 import Playlist from "./PlayList";
 
@@ -141,8 +140,6 @@ export default function Dashboard({ code }) {
           </div>
         )}
       </div>
-
-        <CreatePlaylist />
 
       <button onClick={handleFavoritePlayList}>Afficher playlist</button>
 
