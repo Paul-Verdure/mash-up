@@ -1,10 +1,11 @@
-.home{
+.container__home{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     width: 100vw;
     height: 100vh;
-    background-image: url(./assets/image.jpg);
+    background: url(./assets/image.jpg) ;
+    background-color: rgba(255, 208, 0, 0.7);
     background-repeat: no-repeat;
     background-size: 350%;
     background-position:  top 150px center;
@@ -12,7 +13,7 @@
 }
 
 @media screen and (min-width: 767px) {
-    .home {
+    .container__home{
         background-size: cover;
     }
     .formContent{
@@ -25,6 +26,7 @@
         font-weight: bold;
         font-size: 20px;
     }
+
   
   }  
 
@@ -48,12 +50,19 @@ input{
     align-content: center;
     margin: 20px;
     font-weight: bold;
+    opacity:1.5;
+    background-color: rgb(69, 177, 180);
+    border-radius: 20px;
+    width:auto;
+    height: auto;
 
 }
 .text_explain_h2{
     display: flex;
     text-align: center;
-    color: rgb(22, 22, 214)
+    color: rgb(22, 22, 214);
+    justify-content: center;
+    align-items: center;
 }
 
 .formContent{
@@ -65,12 +74,14 @@ input{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-align: center;
 }
 
 .button__enterplay{
     grid-row: 3;
     display: flex;
     justify-content: center;
+    align-items: center;
     border-radius: 20px;
     margin-top: 20px;
 }

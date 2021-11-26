@@ -96,10 +96,8 @@ export default function Login() {
 
   
   return (
-    <Container
-      className="home"
- 
-    >
+
+    <div className="container__home">
       <Header />
           <div className="signUpLoginBox">
               <div className="slContainer">
@@ -124,7 +122,7 @@ export default function Login() {
                             </div>
                             <div className="button__enterplay">
 
-                                <a className="btn btn-success btn-lg" href={AUTH_URL}>
+                                <a className="btn btn-warning btn-lg " href={AUTH_URL}>
                                   Entre sur la Playlist
                                 </a>
                               </div>
@@ -135,7 +133,7 @@ export default function Login() {
                   </div>
               </div>
 
-    </Container>
+    </div>
   )
 }
 
