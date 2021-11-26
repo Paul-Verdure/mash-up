@@ -130,12 +130,14 @@ export default function Login() {
                                 <a className="btn btn-warning btn-lg " href={AUTH_URL}>
                                   Go Playlist
                                 </a>
+                                <button className="btn btn-warning btn-lg mt-5" onClick={showNew}>Créé une nouvelle playlist</button>
+                                {newCode ? <New/> : null}
+                          
                               </div>
 
 
                           </form>
-                          <button onClick={showNew}>Créé une nouvelle playlist</button>
-                                {newCode ? <New/> : null}
+
                       </div>
                   </div>
               </div>

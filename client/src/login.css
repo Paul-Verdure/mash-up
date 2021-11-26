@@ -34,6 +34,11 @@
         font-weight: bold;
         font-size: 20px;
     }
+    .button__enterplay{
+        display: flex;
+        flex-direction: column;
+
+    }
 
   
   }  
@@ -98,7 +103,10 @@ input{
     align-items: center;
     border-radius: 20px;
     margin-top: 20px;
+    flex-direction: column;
 }
+
+
 
 
 .fond{
