@@ -4,7 +4,7 @@
     grid-template-rows: 1fr 1fr 1fr;
     width: 100vw;
     height: 100vh;
-    background: url(./assets/image.jpg) ;
+    background: url(./assets/liquid-cheese.svg) ;
     background-color: rgba(255, 208, 0, 0.7);
     background-repeat: no-repeat;
     background-size: 350%;
@@ -34,7 +34,7 @@
     margin-right: 20px;
     font-weight: bold;
     font-size: 20px;
-    color: rgb(22, 22, 214);
+    color: #46948C;
     margin-left: 15px;
 }
 input{
@@ -51,8 +51,7 @@ input{
     margin: 20px;
     font-weight: bold;
     opacity:1.5;
-    background-color: rgb(69, 177, 180);
-    border-radius: 20px;
+    background-color: #664e3f;
     width:auto;
     height: auto;
 
@@ -60,7 +59,7 @@ input{
 .text_explain_h2{
     display: flex;
     text-align: center;
-    color: rgb(22, 22, 214);
+    color: #ebdbba;
     justify-content: center;
     align-items: center;
 }
