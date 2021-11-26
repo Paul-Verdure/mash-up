@@ -7,6 +7,7 @@ import SpotifyWebApi from "spotify-web-api-node"
 import {TrackContext} from "./context/TrackContext";
 // import axios from "axios"
 import axios from "axios"
+
 import { Header } from "./components/header/Header"
 import Playlist from "./PlayList";
 
@@ -20,7 +21,10 @@ export default function Dashboard({ code }) {
   const [search, setSearch] = useState("")
   const [playlistIsOn, setPLaylistIsOn] = useState(false)
   const [searchResults, setSearchResults] = useState([])
-  const {playingTrack, setPlayingTrack,lyrics,setLyrics,userFavoritList, setUserFavoritList} = useContext(TrackContext)
+  const [isLiked,setIsLike] = useState(false)
+  const {playingTrack, setPlayingTrack,lyrics,setLyrics,userFavoritList, setUserFavoritList,dropDownPlaylist,setDropDownPlayList} = useContext(TrackContext)
+  
+
 
   function chooseTrack(track) {
     setPlayingTrack(track)
@@ -28,11 +32,16 @@ export default function Dashboard({ code }) {
     setLyrics("")
   }
  
-  
+ 
   const handleClick = (track) =>{
-    setUserFavoritList((prevList) => [...prevList, track]);
    
+      setUserFavoritList((prevList) => [...prevList, track.uri]);
+      setDropDownPlayList((prevList) => [...prevList, track])
   }
+
+
+
+
   console.log("userFavoriteList",userFavoritList)
 
   const handleFavoritePlayList = () => {
@@ -70,9 +79,7 @@ export default function Dashboard({ code }) {
 
     let cancel = false
     spotifyApi.searchTracks(search).then(res => {
-
        // ===  Track Album from search bar ===
-     
       if (cancel) return
       setSearchResults(
         res.body.tracks.items.map(track => {
@@ -82,7 +89,6 @@ export default function Dashboard({ code }) {
               return smallest
             },
             track.album.images[0]
-            
           )
           // data object
           console.log("track artists search bar",track.artists[0].name)
@@ -97,20 +103,14 @@ export default function Dashboard({ code }) {
             uri: track.uri,
             albumUrl: smallestAlbumImage.url,
           }
-        })
-       
-      )
-     
-
-    
+        }) 
+      )    
     })
 
-      
 
     return () => (cancel = true)
   }, [search, accessToken])
 
-  
 
   return (
     <Container className="d-flex flex-column py-2" style={{ height: "100vh" }}>
@@ -122,12 +122,14 @@ export default function Dashboard({ code }) {
         onChange={e => setSearch(e.target.value)}
       />
       <div className="flex-grow-1 my-2" style={{ overflowY: "auto" }}>
-        {searchResults.map(track => (
+        {searchResults.map((track) => (
           <TrackSearchResult
             track={track}
-            key={track.uri}
+            key={track}
             chooseTrack={chooseTrack}
-            handleClick={()=> {handleClick(track.uri)}}
+            handleClick={()=>{handleClick(track)}}
+            
+            
           />
         ))}
       
@@ -141,7 +143,8 @@ export default function Dashboard({ code }) {
         )}
       </div>
 
-      <button onClick={handleFavoritePlayList}>Afficher playlist</button>
+
+      <button className="btn btn-success btn-lg" onClick={handleFavoritePlayList}>Afficher playlist</button>
 
 
 

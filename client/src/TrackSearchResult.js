@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 
-export default function TrackSearchResult({ track, chooseTrack, handleClick,value }) {
+export default function TrackSearchResult({ track, chooseTrack, handleClick }) {
   
 
   function handlePlay() {
@@ -9,7 +9,7 @@ export default function TrackSearchResult({ track, chooseTrack, handleClick,valu
   }
 
   return (
-    <div
+    <div 
       className="d-flex m-2 align-items-center"
       style={{ cursor: "pointer" }}
       
@@ -20,7 +20,6 @@ export default function TrackSearchResult({ track, chooseTrack, handleClick,valu
         <div className="text-muted">{track.artist}</div>
         <button
          onClick={handleClick}
-         value={value}
          >+</button>
       </div>
     </div>

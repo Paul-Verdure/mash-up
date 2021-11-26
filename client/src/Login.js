@@ -2,6 +2,8 @@ import React from "react"
 import { useState, useEffect } from "react"
 import { Container } from "react-bootstrap"
 import { v4 as uuidv4 } from 'uuid';
+import New from "./New";
+
 
 const AUTH_URL =
   "https://accounts.spotify.com/authorize?client_id=e48a09962c39496da4a072ca196590e4&response_type=code&redirect_uri=http://localhost:3000&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state"
@@ -30,6 +32,7 @@ export default function Login() {
   const [loginData, setLoginData]= useState(getLocalStorage());
   const [newUserName, setNewUserName] = useState('');
   const [newUserPassword,setNewUserPassword] = useState('');
+  const [newCode, setNewCode] = useState(false);
 
   const handleNewUserName = (event) => {
     setNewUserName(event.target.value)
@@ -41,9 +44,12 @@ export default function Login() {
 
   };
 
+  const showNew = () => {
+    setNewCode(!newCode);
+  }
 
-  const handleClick = () => {
-  
+  const handleClick = (e) => {
+  e.preventDefault()
     
     setLoginData((prevUsers) => [
       ...prevUsers,
@@ -105,14 +111,11 @@ export default function Login() {
                                 <a className="btn btn-success btn-lg" href={AUTH_URL}>
                                   Entre sur la Playlist
                                 </a>
-                              <button>Créer une nouvelle playlist</button>
+                                <button onClick={showNew}>Créer une nouvelle playlist</button>
+                                {newCode ? <New/> : null}
                           </form>
                       </div>
                   </div>
-
-
-
-
               </div>
           </div>
     </Container>
