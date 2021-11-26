@@ -70,6 +70,20 @@ export default function Login() {
     console.log(loginData)
   }
 
+  const playlistNumber = [
+    {
+      id:"1",
+      password:"512",
+      pseudo:"Paul",
+      name:"Soirée de Noel",
+      title:"Highway to Hell",
+      artiste:"AC∕DC",
+      albumUrl:"https://i.scdn.co/image/ab67616d0000485151c02a77d09dfcd53c8676d0",
+    }
+  ]
+
+  console.log(playlistNumber)
+
   // const {pseudo, password} = loginData; 
 
   // localStorage.setItem("key", "pseudo")
@@ -82,55 +96,44 @@ export default function Login() {
 
   
   return (
-    <Container
-      className="home"
- 
-    >
+
+    <div className="container__home">
       <Header />
           <div className="signUpLoginBox">
               <div className="slContainer">
                   <div className="text_explain">
-                  <h2>Entre ton pseudo & ton code pour entrer sur la playlist collaborative </h2>
+                  <h2 className="text_explain_h2">Entre ton pseudo & ton code pour entrer sur la playlist collaborative </h2>
                   </div>
                       <div className="formContent">
                           <form onClick={handleClick} >
 
-                              <div >
+                              <div>
                               <div className="inputBox">
-                                  <input onChange={handleNewUserName} value={newUserName} type="text" id="pseudo" placeholder="Pseudo"/>
-
                                   <label htmlFor="pseudo">Pseudo</label>
-                                  <input 
-                                    value="pseudo"
-                                    type="text" 
-                                    id="pseudo" 
-                                    placeholder="Pseudo" />
+                                  <input onChange={handleNewUserName} value={newUserName} type="text" id="pseudo" placeholder="Pseudo"/>
                               </div>
                               <div className="inputBox">
-
-                                <input onChange={handleNewUserPassword} value={newUserPassword} type="text" id="password" placeholder="Code de la Playlist"/>
-
                                 <label htmlFor="password">Entre le code de la Playlist</label>
-                                <input  value="password" type="text" id="password" placeholder="Code de la Playlist"/>
+                                <input onChange={handleNewUserPassword} value={newUserPassword} type="text" id="password" placeholder="Code de la Playlist"/>
                               </div>
 
                               <div className="button__enterplay">
 
                             </div>
+                            <div className="button__enterplay">
 
-                                <a className="btn btn-success btn-lg" href={AUTH_URL}>
+                                <a className="btn btn-warning btn-lg " href={AUTH_URL}>
                                   Entre sur la Playlist
                                 </a>
                               </div>
-                              <div className="button__newplay">
-                              <button className="btn btn-success btn-lg">Créer une nouvelle playlist</button>
                               </div>
+
                           </form>
                       </div>
                   </div>
               </div>
 
-    </Container>
+    </div>
   )
 }
 

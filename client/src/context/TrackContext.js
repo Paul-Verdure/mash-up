@@ -6,6 +6,7 @@ const TrackContextProvider = ({children}) => {
     const [playingTrack, setPlayingTrack] = useState()
     const [lyrics, setLyrics] = useState("")
     const [userFavoritList, setUserFavoritList] = useState([])
+    const [dropDownPlayList,setDropDownPlayList] = useState([])
 
     useEffect(() => {
         if (!playingTrack) return
@@ -35,7 +36,9 @@ const TrackContextProvider = ({children}) => {
            lyrics,
            setLyrics,
            userFavoritList,
-           setUserFavoritList
+           setUserFavoritList,
+           dropDownPlayList,
+           setDropDownPlayList
 
            }}>
             
