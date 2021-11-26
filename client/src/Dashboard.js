@@ -151,7 +151,7 @@ export default function Dashboard({ code }) {
           </div>
         )}
       </div>
-      <button className="btn btn-success btn-lg" onClick={handleFavoritePlayList}>Afficher playlist</button>
+      <button className="btn-warning btn-lg " onClick={handleFavoritePlayList}>Afficher playlist</button>
       {playlistIsOn ? <Playlist /> : null}
       <div>
         <Player accessToken={accessToken} trackUri={playingTrack?.uri} />
