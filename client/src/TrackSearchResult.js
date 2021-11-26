@@ -1,6 +1,7 @@
 import React, {useState} from "react"
 
-export default function TrackSearchResult({ track, chooseTrack, handleClick }) {
+export default function TrackSearchResult({ track, chooseTrack, handleClick,value }) {
+  
 
   function handlePlay() {
     chooseTrack(track)
@@ -16,7 +17,10 @@ export default function TrackSearchResult({ track, chooseTrack, handleClick }) {
       <div className="ml-3">
         <div>{track.title}</div>
         <div className="text-muted">{track.artist}</div>
-        <button onClick={handleClick}>+</button>
+        <button
+         onClick={handleClick}
+         value={value}
+         >+</button>
       </div>
     </div>
   )

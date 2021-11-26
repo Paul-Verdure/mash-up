@@ -21,8 +21,9 @@ export default function Dashboard({ code }) {
   const [search, setSearch] = useState("")
   const [playlistIsOn, setPLaylistIsOn] = useState(false)
   const [searchResults, setSearchResults] = useState([])
-  const {playingTrack, setPlayingTrack,lyrics,setLyrics,userFavoritList, setUserFavoritList} = useContext(TrackContext)
-
+  const [isLiked,setIsLike] = useState(false)
+  const {playingTrack, setPlayingTrack,lyrics,setLyrics,userFavoritList, setUserFavoritList,dropDownPlaylist,setDropDownPlayList} = useContext(TrackContext)
+  
   function chooseTrack(track) {
     setPlayingTrack(track)
     setSearch("")
@@ -31,9 +32,23 @@ export default function Dashboard({ code }) {
  
   
   const handleClick = (track) =>{
-    setUserFavoritList((prevList) => [...prevList, track]);
+    if (isLiked){
+      setUserFavoritList((prevList) => [...prevList, track.uri]);
+      setDropDownPlayList((prevList) => [...prevList, track])
+
+    }else {
+      setDropDownPlayList([])
+      
+
+    }
+    setIsLike(!isLiked)
+
+   
+   
   }
   console.log("userFavoriteList",userFavoritList)
+  console.log("isLiked?", isLiked)
+  console.log("playingtrack",playingTrack)
 
   const handleFavoritePlayList = () => {
     setPLaylistIsOn(!playlistIsOn)
@@ -119,6 +134,7 @@ export default function Dashboard({ code }) {
           <TrackSearchResult
             track={track}
             key={track.uri}
+            value={track.uri}
             chooseTrack={chooseTrack}
             handleClick={()=> {handleClick(track)}}
           />

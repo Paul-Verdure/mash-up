@@ -7,23 +7,27 @@ const PlayList = () => {
     const {userFavoritList, setUserFavoritList} = useContext(TrackContext)
 
     console.log("lecteur", userFavoritList);
+    const {dropDownPlayList} = useContext(TrackContext)
+    
+
     return (
         <div className="container d-flex m-2 align-items-center"
         style={{ cursor: "pointer" }}>
             {
-                userFavoritList.map(data=>(
-                    <div>
-                    <img src={data.albumUrl} style={{ height: "64px", width: "64px" }} />
-                    <div className="ml-3">
-                        <div>{data.title}</div>
-                        <div className="text-muted">{data.artist}</div>
-                    </div>
+                dropDownPlayList.map((data,index)=>(
+                    <div key={index}>
+                    <h1>Artiste : {data.title}</h1>
+                    <h1>Title : {data.artist}</h1>
+                    <img src={data.albumUrl} alt="url album"/>
                     </div>
                 ))
             }
-            <div><PlayerPlayList /></div>
+            {console.log("dropDownList",dropDownPlayList)}
+            
         </div>
+        
     )
+    
 }
 
 export default PlayList;
