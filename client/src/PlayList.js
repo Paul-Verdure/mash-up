@@ -1,16 +1,9 @@
 import {TrackContext} from "./context/TrackContext";
 import { useContext } from "react"
-import PlayerPlayList from "./PlayerPlayList";
+import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
 
-
-const PlayList = (playlistNumber) => {
-    const {userFavoritList, setUserFavoritList} = useContext(TrackContext)
-
-    console.log("lecteur", userFavoritList);
-    const {dropDownPlayList} = useContext(TrackContext)
-
-    console.log(playlistNumber)
-
+const PlayList = () => {
+    const {dropDownPlayList,setDropDownPlayList} = useContext(TrackContext)
     
 
     return (
@@ -22,6 +15,16 @@ const PlayList = (playlistNumber) => {
                     <h1>Artiste : {data.title}</h1>
                     <h1>Title : {data.artist}</h1>
                     <img src={data.albumUrl} alt="url album"/>
+                    <button onClick={()=> {
+                       
+                        
+                        setDropDownPlayList(dropDownPlayList.filter(song=> song.uri !== data.uri))
+                    
+                        
+                        
+                        
+                        
+                        }}>-</button>
                     </div>
                 ))
             }
