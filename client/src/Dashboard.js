@@ -112,10 +112,6 @@ export default function Dashboard({ code }) {
       )    
     })
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 83a0f02ad0a7d44faae0d2777f43c8d5f3933d2d
 
     return () => (cancel = true)
   }, [search, accessToken])
